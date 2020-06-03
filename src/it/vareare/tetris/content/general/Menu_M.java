@@ -62,6 +62,18 @@ public class Menu_M {
         return;
     }
 
+    static public int getCurrentMenu() {
+        return currentMenu;
+    }
+
+    static public int getCurrentSelection() {
+        return currentSelection;
+    }
+
+    static public String [][] getMenu_m() {
+        return menu_m.clone();
+    }
+
     static public void increaseCurrentSelection() {
         if(currentSelection+1 == menu_m[currentMenu].length) {
             currentSelection = 0;

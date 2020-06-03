@@ -39,6 +39,11 @@ public class Menu implements EventHandler<KeyEvent> {
             case A:
                 Menu_M.handleDecreaseSelected();
                 break;
+            case ESCAPE:
+            case BACK_SPACE:
+                Menu_M.setCurrentSelection(Menu_M.getMenu_m()[Menu_M.getCurrentMenu()].length - 1);
+                Menu_M.handleSelected();
+                break;
             case BACK_SLASH:
                 if(!PerformanceViewer.getInstance().isRunning())
                     PerformanceViewer.getInstance().start();
