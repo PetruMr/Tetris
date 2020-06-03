@@ -3,6 +3,7 @@ package it.vareare.tetris.content.control;
 import it.vareare.tetris.content.animations.PerformanceViewer;
 import it.vareare.tetris.content.general.Content;
 import it.vareare.tetris.content.general.Menu_M;
+import it.vareare.tetris.content.general.Settings;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import it.vareare.tetris.content.control.*;
@@ -53,15 +54,16 @@ public class Menu implements EventHandler<KeyEvent> {
                 break;
             case F1:
                 /* Nel caso ci siano problemi con i settings attuali, F1 "ripara" il gioco*/
-                Content.defaultSettings();
-                Content.defaultGameSettings();
-                Content.saveSettings();
+                Settings.defaultSettings();
+                Settings.defaultGameSettings();
+                Settings.saveSettings();
                 Content.updateSettings();
                 break;
-            //case G:
-            //    Content.log = ("Changed input to game");
-            //    Content.changeInput(Game.getInstance());
-            //    break;
+            case G:
+                Content.log = ("Changed input to game");
+                Content.changeInput(Game.getInstance());
+                Menu_M.standardAnimation.stop();
+                break;
         }
     }
 }

@@ -119,17 +119,17 @@ public class Menu_M {
                 break;
             case "SAVE GAME SETTINGS":
             case "SAVE SETTINGS":
-                Content.saveSettings();
+                Settings.saveSettings();
                 Content.updateSettings();
                 break;
             case "UNDO CHANGES":
-                Content.resetSettings();
+                Settings.resetSettings();
                 break;
             case "DEFAULT SETTINGS":
-                Content.defaultSettings();
+                Settings.defaultSettings();
                 break;
             case "DEFAULT GAME SETTINGS":
-                Content.defaultGameSettings();
+                Settings.defaultGameSettings();
                 break;
             default:
                 changeSettingsWithHandleSelected();
@@ -144,25 +144,25 @@ public class Menu_M {
         Content.log = menu_m[currentMenu][currentSelection] + " increased";
         switch(menu_m[currentMenu][currentSelection]) {
             case "DIFFICULTY":
-                Content.changeDifficulty(1);
+                Settings.changeDifficulty(1);
                 break;
             case "STYLE":
-                Content.changeStyle(1);
+                Settings.changeStyle(1);
                 break;
             case "MODE":
-                Content.changeMode(1);
+                Settings.changeMode(1);
                 break;
             case "RESOLUTION":
-                Content.changeResolution(1);
+                Settings.changeResolution(1);
                 break;
             case "FULLSCREEN":
-                Content.changeFullscreen();
+                Settings.changeFullscreen();
                 break;
             case "VOLUME":
-                Content.changeVolume(1);
+                Settings.changeVolume(1);
                 break;
             case "QUALITY":
-                Content.changeQuality(1);
+                Settings.changeQuality(1);
                 break;
             default:
                 Content.log = menu_m[currentMenu][currentSelection] + " couldn't be increased";
@@ -174,25 +174,25 @@ public class Menu_M {
         Content.log = menu_m[currentMenu][currentSelection] + " decreased";
         switch(menu_m[currentMenu][currentSelection]) {
             case "DIFFICULTY":
-                Content.changeDifficulty(-1);
+                Settings.changeDifficulty(-1);
                 break;
             case "STYLE":
-                Content.changeStyle(-1);
+                Settings.changeStyle(-1);
                 break;
             case "MODE":
-                Content.changeMode(-1);
+                Settings.changeMode(-1);
                 break;
             case "RESOLUTION":
-                Content.changeResolution(-1);
+                Settings.changeResolution(-1);
                 break;
             case "FULLSCREEN":
-                Content.changeFullscreen();
+                Settings.changeFullscreen();
                 break;
             case "VOLUME":
-                Content.changeVolume(-1);
+                Settings.changeVolume(-1);
                 break;
             case "QUALITY":
-                Content.changeQuality(-1);
+                Settings.changeQuality(-1);
                 break;
             default:
                 Content.log = menu_m[currentMenu][currentSelection] + " couldn't be decreased";
@@ -225,11 +225,11 @@ public class Menu_M {
     static public void illuminateCurrentMenu() {
         Content.g.setFont(Font.font("Sans-serif", Content.width*0.02));
         new Particle(20, 0.5, 1, 180, 180, (int)(Content.width*0.18),
-                (int)(getYForMenuPiece(currentSelection) - (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/2)),
+                (int)(getYForMenuPiece(currentSelection) - (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/3)),
                 (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/4),
                 (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/4),
                 Color.WHITE, 0.2, 50,
-                0.6, 10, 1, Content.g).animation();
+                0.6, (int)(Content.width*0.003), 1, Content.g).animation();
     }
 
 

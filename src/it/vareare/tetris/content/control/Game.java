@@ -1,6 +1,8 @@
 package it.vareare.tetris.content.control;
 
+import it.vareare.tetris.content.animations.PerformanceViewer;
 import it.vareare.tetris.content.general.Content;
+import it.vareare.tetris.content.general.Menu_M;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 
@@ -37,12 +39,17 @@ public class Game implements EventHandler<KeyEvent> {
             case ESCAPE:
             case P:
                 Content.log = ("Pause");
-            case BACK_SLASH:
-                Content.log = ("Debug");
-                break;
             case G:
                 Content.log = ("Changed input to menu");
                 Content.changeInput(Menu.getInstance());
+                Menu_M.startAnimation();
+                break;
+            case BACK_SLASH:
+                if(!PerformanceViewer.getInstance().isRunning())
+                    PerformanceViewer.getInstance().start();
+                else
+                    PerformanceViewer.getInstance().stop();
+                Content.log = ("Debug");
                 break;
         }
     }
