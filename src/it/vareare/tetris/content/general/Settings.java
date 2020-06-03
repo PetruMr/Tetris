@@ -1,6 +1,6 @@
 package it.vareare.tetris.content.general;
 
-import java.io.Serializable;
+import java.io.*;
 
 public class Settings implements Serializable {
 
@@ -94,6 +94,18 @@ public class Settings implements Serializable {
         Settings.e_quality      = Settings.quality;
         Settings.e_resolution   = Settings.resolution;
         Settings.e_fullscreen   = Settings.fullscreen;
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("settings.bin"));
+            out.writeObject(new int[]{
+                    Settings.e_difficulty,
+                    Settings.e_style,
+                    Settings.e_mode,
+                    Settings.e_volume,
+                    Settings.e_quality,
+                    Settings.e_resolution,
+                    (Settings.e_fullscreen)?(1):(0)
+            });
+        } catch (IOException ignored) {}
     }
 
     static public void resetSettings() {
@@ -117,5 +129,29 @@ public class Settings implements Serializable {
         Settings.difficulty = Settings.s_difficulty;
         Settings.style      = Settings.s_style;
         Settings.mode       = Settings.s_mode;
+    }
+
+    public static void loadSettings() {
+        try {
+            ObjectInputStream inp = new ObjectInputStream(new FileInputStream("settings.bin"));
+            int [] settings = (int[]) inp.readObject();
+            Settings.e_difficulty   = settings[0];
+            Settings.e_style        = settings[1];
+            Settings.e_mode         = settings[2];
+            Settings.e_volume       = settings[3];
+            Settings.e_quality      = settings[4];
+            Settings.e_resolution   = settings[5];
+            Settings.e_fullscreen   = settings[6] != 0;
+            Settings.difficulty     = settings[0];
+            Settings.style          = settings[1];
+            Settings.mode           = settings[2];
+            Settings.volume         = settings[3];
+            Settings.quality        = settings[4];
+            Settings.resolution     = settings[5];
+            Settings.fullscreen     = settings[6] != 0;
+            Content.updateSettings();
+        } catch(IOException|ClassNotFoundException ignored) {
+            Settings.saveSettings();
+        }
     }
 }

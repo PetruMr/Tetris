@@ -5,6 +5,7 @@ import it.vareare.tetris.content.general.Content;
 import it.vareare.tetris.content.general.Menu_M;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 public class Game implements EventHandler<KeyEvent> {
 
@@ -41,7 +42,7 @@ public class Game implements EventHandler<KeyEvent> {
                 Content.log = ("Pause");
             case G:
                 Content.log = ("Changed input to menu");
-                Content.changeInput(Menu.getInstance());
+                Content.changeInput(Menu.getInstance(), null);
                 Menu_M.startAnimation();
                 break;
             case BACK_SLASH:

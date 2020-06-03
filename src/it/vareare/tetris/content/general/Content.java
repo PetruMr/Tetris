@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
@@ -18,7 +19,7 @@ import javafx.stage.WindowEvent;
 
 import java.io.Serializable;
 
-public class Content implements Serializable {
+public class Content {
 
     /* -- UTILS -- */
 
@@ -105,7 +106,9 @@ public class Content implements Serializable {
         *
         * */
 
+
         Content.stage = stage;
+        Settings.loadSettings();
         Content.stage.setWidth(Content.width);
         Content.stage.setHeight(Content.height);
 
@@ -132,12 +135,13 @@ public class Content implements Serializable {
         });
 
         Content.inputType = Menu.getInstance();
-        Content.scene.setOnKeyPressed(Content.inputType);
+        Content.changeInput(Content.inputType, Menu.mouseEventInMenuHandler);
 
         standardAnimation.start();
     }
 
-    public static void changeInput(EventHandler<KeyEvent> instance) {
-        Content.scene.setOnKeyPressed(instance);
+    public static void changeInput(EventHandler<KeyEvent> instance_k, EventHandler<MouseEvent> instance_m) {
+        Content.scene.setOnKeyPressed(instance_k);
+        Content.scene.setOnMouseClicked(instance_m);
     }
 }

@@ -7,6 +7,8 @@ import it.vareare.tetris.content.general.Settings;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import it.vareare.tetris.content.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 
 public class Menu implements EventHandler<KeyEvent> {
 
@@ -61,9 +63,23 @@ public class Menu implements EventHandler<KeyEvent> {
                 break;
             case G:
                 Content.log = ("Changed input to game");
-                Content.changeInput(Game.getInstance());
+                Content.changeInput(Game.getInstance(), null);
                 Menu_M.standardAnimation.stop();
                 break;
         }
     }
+
+    public static EventHandler<MouseEvent> mouseEventInMenuHandler = new EventHandler<MouseEvent>() {
+        @Override
+        public void handle(MouseEvent event) {
+            double clickY = event.getY();
+            double clickX = event.getX();
+            Font font = Menu_M.getFontTable();
+            Content.log = "Mouse clicked in cord: (" + clickX + "," + clickY + ")";
+            //if()
+            // Content.g.fillRect(Content.width*0.2, Content.height*0.46-height, width, height);
+            // width = com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().computeStringWidth("EXIT", Content.g.getFont());
+            // height = com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight();
+        }
+    };
 }

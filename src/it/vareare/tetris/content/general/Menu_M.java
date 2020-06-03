@@ -48,6 +48,11 @@ public class Menu_M {
 
     static public void setCurrentMenu(int index) {
         if(index >= 0 && index < menu_m.length) {
+            standardAnimation.stop();
+            new Particle(700, 3.4, 0.4, (index > currentMenu)?(180):(0), 20, (int)(Content.width*0.18), Content.height, (int)(Content.width), Content.height,
+                    Color.LIGHTCYAN, 0.2, 700,
+                    0.9, (int)(Content.width*0.002), 1, Content.g).animation();
+            standardAnimation.start();
             currentMenu = index;
             setCurrentSelection(0);
         }
@@ -222,14 +227,25 @@ public class Menu_M {
         }
     };
 
+    static public Font getFontTable() {
+        return Font.font("Sans-serif", Content.width*0.02);
+    }
+
     static public void illuminateCurrentMenu() {
         Content.g.setFont(Font.font("Sans-serif", Content.width*0.02));
-        new Particle(20, 0.5, 1, 180, 180, (int)(Content.width*0.18),
-                (int)(getYForMenuPiece(currentSelection) - (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/3)),
-                (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/4),
-                (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/4),
-                Color.WHITE, 0.2, 50,
-                0.6, (int)(Content.width*0.003), 1, Content.g).animation();
+        //new Particle(15, 0.4, 1, 180, 20, (int)(Content.width*0.18),
+        //        (int)(getYForMenuPiece(currentSelection) - (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/3)),
+        //        (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/4),
+        //        (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/4),
+        //        Color.WHITE, 0.2, 100,
+        //        0.6, (int)(Content.width*0.003), 1, Content.g).animation();
+        Content.g.setFill(Color.WHITE);
+        Content.g.fillRect(
+                (int)(Content.width*0.18),
+                (int)(getYForMenuPiece(currentSelection) - (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/1.8)),
+                (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/2),
+                (int)(com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(Content.g.getFont()).getLineHeight()/2)
+        );
     }
 
 
