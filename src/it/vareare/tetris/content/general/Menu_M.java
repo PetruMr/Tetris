@@ -11,7 +11,6 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import it.vareare.tetris.content.other.*;
 import javafx.stage.WindowEvent;
-import tetris.elements.Particle;
 
 import java.awt.*;
 

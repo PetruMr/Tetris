@@ -15,7 +15,6 @@ import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import tetris.elements.ColorPattern;
 
 import java.io.Serializable;
 
@@ -31,7 +30,6 @@ public class Content implements Serializable {
     transient static public GraphicsContext g;
     transient static public Scene scene;
 
-    transient static public Color backgroundColor = ColorPattern.getColorAtId(0,7);
     transient static public LinearGradient gradient = new LinearGradient(0,0,3000,0,false, CycleMethod.NO_CYCLE, new Stop[]{new Stop(0,Color.RED),new Stop(1,Color.BLUE)});
 
     /* -- SETTINGS -- */

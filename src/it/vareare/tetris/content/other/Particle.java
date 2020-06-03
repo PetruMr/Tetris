@@ -3,7 +3,6 @@ package it.vareare.tetris.content.other;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import tetris.controls.Controls;
 
 import java.util.SplittableRandom;
 import java.util.stream.DoubleStream;
@@ -155,7 +154,6 @@ class SingleParticle {
                  *  WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP
                  * /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                  */
-                Controls.numberOfThings--;
             } else {
                 SingleParticle.this.parent.getG().setFill(SingleParticle.this.color);
                 SingleParticle.this.parent.getG().fillRect(
@@ -186,6 +184,5 @@ class SingleParticle {
  *  WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP - WIP
  * /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  */
-        Controls.numberOfThings++;
     }
 }
