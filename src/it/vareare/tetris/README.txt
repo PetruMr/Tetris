@@ -1,0 +1,1 @@
+In case everything breaks after saving the settings, either of the game or the app itself, try deleting the "settings.config" file from the game folder.

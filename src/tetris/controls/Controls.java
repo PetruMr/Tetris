@@ -37,7 +37,7 @@ public class Controls{
                     int dir = 270;
                     int angD = 260;
                     double spd = 0.1;
-                    int numFor1 = 10;
+                    int numFor1 = 1000;
                     p = new Particle(numFor1, spd, 1, dir, angD, Content.width/2-30,
                             Content.height/2, 10, 1, Color.DARKCYAN, 1, 20000,
                             0.6, 2, 1, Content.g);

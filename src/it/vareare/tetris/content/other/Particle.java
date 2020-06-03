@@ -1,4 +1,4 @@
-package tetris.elements;
+package it.vareare.tetris.content.other;
 
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;

@@ -25,14 +25,13 @@ public class Test extends Application {
 
         Content.init(primaryStage);
 
-        Content.scene.setOnKeyPressed(Controls.menu);
+        Content.scene.setOnKeyPressed(Controls.debug);
         MainMenu.g = Content.g;
 
         MainMenu.a.start();
         //MainMenu.arrowTimer.start();
         PerformanceViewer.a.start();
 
-        primaryStage.getIcons().add(new Image("Images/StartNorml.png"));
 
     }
 }
