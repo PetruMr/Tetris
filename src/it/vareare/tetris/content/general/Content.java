@@ -115,7 +115,7 @@ public class Content implements Serializable {
                 subject = MAX;
             }
         }
-        System.out.println(subject);
+        Content.log += " " + subject;
         return subject;
     }
 
